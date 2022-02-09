@@ -1,0 +1,9 @@
+1. run get_json.py -i /path/to/train_full_details_with_oies_no_duplications.csv --> will generate in the folder of train_full_details_with_oies_no_duplications.csv a helper dir where the sentences from train_full_details_with_oies_no_duplications.csv will be stored in json files.
+2.  run get_QASRL.py -i /path/to/train_full_details_with_oies_no_duplications.csv --> in the helper folder will create QAs/QASRL folder where the QASRL parsings will be stored.
+**** attention **** make sure step 2 is run when the working directory points to the nrl-qasrl directory (might only work during debugging).
+3.  run get_QANom.py -i /path/to/train_full_details_with_oies_no_duplications.csv --> in the helper folder will create QAs/QANOM folder where the QANom parsings will be stored.
+4.  run get_QA_combined.py -i /path/to/train_full_details_with_oies_no_duplications.csv --> in the helper folder will create QAs/combined folder where the combined QANom and QASRL parsings will be stored.
+5.  run get_alignments.py -i /path/to/train_full_details_with_oies_no_duplications.csv -o /path/to/csv file with QASem-based aligned spans--> will find the aligned QASem-based spans and save to the outdir file
+
+**** attention ****
+In the final csv file, the aligned QASem-based spans will be under columns with "SpanOie" (either docSpanOieText, docSpanOieOffsets, summarySpanOieText or summarySpanOieOffsets). This name is just a formality, which immitates the structure of the original "train_full_details_with_oies_no_duplications.csv" file, but in fact these spans are QASem-based, rather than oie-based.
